@@ -1,0 +1,17 @@
+{% extends "app/base.html" %}
+{% block content %}
+<h2>Register</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <label>Username</label>
+  {{ form.username }}
+  <label>Email</label>
+  {{ form.email }}
+  <label>Password</label>
+  {{ form.password }}
+  <label>Confirm password</label>
+  {{ form.password_confirm }}
+  <button type="submit">Register</button>
+</form>
+{% endblock %}
