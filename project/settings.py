@@ -62,17 +62,21 @@ USE_I18N = True
 USE_TZ = True
 STATIC_URL = "/static/"
 
-# Celery config (Redis broker)
-CELERY_BROKER_URL = "redis://localhost:6379/0"
-CELERY_RESULT_BACKEND = "redis://localhost:6379/1"
-CELERY_ACCEPT_CONTENT = ["json"]
-CELERY_TASK_SERIALIZER = "json"
-CELERY_RESULT_SERIALIZER = "json"
+# =====================
+# CELERY CONFIGURATION
+# =====================
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
-# Email backend - console for development (prints email to console)
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-DEFAULT_FROM_EMAIL = "no-reply@example.com"
-
-# Login redirect
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/login/"
+# =====================
+# EMAIL CONFIGURATION (Gmail SMTP)
+# =====================
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sandeshshettyy08@gmail.com'        # 🔹 Replace with your Gmail
+EMAIL_HOST_PASSWORD = 'bwwg nuwk stge sfws'       # 🔹 Replace with your Gmail App Password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
